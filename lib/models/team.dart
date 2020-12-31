@@ -6,6 +6,9 @@ class Team {
   Team({this.id, this.name, this.votes});
 
   factory Team.fromMap(Map<String, dynamic> obj) {
-    return Team(id: obj['id'], name: obj['name'], votes: obj['votes']);
+    return Team(
+        id: obj.containsKey('id') ? obj['id'] : 'no-id',
+        name: obj.containsKey('name') ? obj['name'] : 'no-name',
+        votes: obj.containsKey('votes') ? obj['votes'] : 'no-votes');
   }
 }
